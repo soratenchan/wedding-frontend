@@ -37,6 +37,9 @@ npm-start:
 lint:
 	$(DC) exec $(SERVICE) npm run lint
 
+gen:
+	$(DC) exec $(SERVICE) npm run gen
+
 init:
 	@make down-v
 	@make build
