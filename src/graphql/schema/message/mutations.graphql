@@ -1,0 +1,27 @@
+mutation CreateMessage($input: NewMessage!) {
+  createMessage(input: $input) {
+    id
+    text
+    user {
+      id
+      name
+      email
+    }
+    created_at
+    updated_at
+  }
+}
+
+mutation UpdateMessage($userId: String!) {
+  updateMessage(userId: $userId) {
+    id
+    text
+    user {
+      id
+      name
+      email
+    }
+    created_at
+    updated_at
+  }
+}

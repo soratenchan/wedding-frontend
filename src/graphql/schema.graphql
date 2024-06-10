@@ -1,0 +1,33 @@
+input NewMessage {
+  text: String!
+  userId: String!
+}
+
+input NewUser {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  createMessage(input: NewMessage!): Message!
+  updateMessage(userId: String!): Message!
+  createUser(input: NewUser!): User!
+}
+
+type Query {
+  getMessages: [Message!]!
+}
+
+type Message {
+  id: ID!
+  text: String!
+  user: User!
+  created_at: String!
+  updated_at: String!
+}
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  password: String!
+}
