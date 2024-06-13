@@ -29,18 +29,12 @@ export type Message = {
 export type Mutation = {
   __typename?: 'Mutation';
   createMessage: Message;
-  createUser: User;
   updateMessage: Message;
 };
 
 
 export type MutationCreateMessageArgs = {
   input: NewMessage;
-};
-
-
-export type MutationCreateUserArgs = {
-  input: NewUser;
 };
 
 
@@ -51,11 +45,6 @@ export type MutationUpdateMessageArgs = {
 export type NewMessage = {
   text: Scalars['String']['input'];
   userId: Scalars['String']['input'];
-};
-
-export type NewUser = {
-  email: Scalars['String']['input'];
-  password: Scalars['String']['input'];
 };
 
 export type Query = {
@@ -89,13 +78,6 @@ export type GetMessagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetMessagesQuery = { __typename?: 'Query', getMessages: Array<{ __typename?: 'Message', id: string, text: string, created_at: string, updated_at: string, user: { __typename?: 'User', id: string, name: string, email: string } }> };
-
-export type CreateUserMutationVariables = Exact<{
-  input: NewUser;
-}>;
-
-
-export type CreateUserMutation = { __typename?: 'Mutation', createUser: { __typename?: 'User', id: string, name: string, email: string } };
 
 
 export const CreateMessageDocument = gql`
@@ -143,15 +125,6 @@ export const GetMessagesDocument = gql`
   }
 }
     `;
-export const CreateUserDocument = gql`
-    mutation CreateUser($input: NewUser!) {
-  createUser(input: $input) {
-    id
-    name
-    email
-  }
-}
-    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
 
@@ -168,9 +141,6 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetMessages(variables?: GetMessagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<GetMessagesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetMessagesQuery>(GetMessagesDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetMessages', 'query', variables);
-    },
-    CreateUser(variables: CreateUserMutationVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<CreateUserMutation> {
-      return withWrapper((wrappedRequestHeaders) => client.request<CreateUserMutation>(CreateUserDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'CreateUser', 'mutation', variables);
     }
   };
 }

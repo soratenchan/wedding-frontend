@@ -3,15 +3,9 @@ input NewMessage {
   userId: String!
 }
 
-input NewUser {
-  email: String!
-  password: String!
-}
-
 type Mutation {
   createMessage(input: NewMessage!): Message!
   updateMessage(userId: String!): Message!
-  createUser(input: NewUser!): User!
 }
 
 type Query {
