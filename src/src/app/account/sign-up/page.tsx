@@ -1,5 +1,7 @@
+import SignUp from '@/features/routes/account/components/SignUp'
+
 const page = () => {
-  return <div>新規登録</div>
+  return <SignUp />
 }
 
 export default page
