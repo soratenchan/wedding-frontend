@@ -1,66 +1,59 @@
 import Head from 'next/head';
-import Link from 'next/link';
+import Image from 'next/image';
+import landingImage from '../../../images/landing.png';
+import landingFeather from '../../../images/back2.png';
 
 const LandingPage = () => {
   const weddingDate = "June 20, 2025";
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center bg-gradient-to-r from-purple-700 to-pink-600 text-white"
-         style={{ backgroundImage: "url('/images/landing.png')" }}>
+    <div className="min-h-screen bg-custom-f8f9f7">
       <Head>
         <title>Wedding App - Your Dream Wedding Planner</title>
         <meta name="description" content="Plan your dream wedding with ease" />
       </Head>
 
-      {/* Hero section */}
-      <div className="text-center mt-12">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">Wedding Gate</h1>
-        <div className="text-3xl md:text-4xl font-semibold mb-8">
-          <span className="text-pink-300">Ohtani</span> & <span className="text-purple-300">Tanaka</span>
+      {/* Background color */}
+      <div className="relative min-h-screen bg-f8f9f7">
+        
+        {/* Image container */}
+        <div className="absolute inset-0 flex items-center justify-center bg-f8f9f7">
+          <Image
+            src={landingImage}
+            alt="Landing Image"
+            layout="fill"
+            objectFit="contain"
+            quality={100}
+            priority
+          />
         </div>
-        <p className="text-lg md:text-xl mb-8">Your Dream Wedding Planner</p>
-        <Link href="/account/sign-up">
-          <div className="bg-white hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-full cursor-pointer">
-            Get Started
+
+        {/* Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-gray-800">
+          <div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Wedding Gate</h1>
+            <div className="text-3xl md:text-4xl font-semibold mb-2">
+              <span className="text-pink-600">Ohtani</span> &{' '}
+              <span className="text-purple-600">Tanaka</span>
+            </div>
+            <div className="text-lg mb-2">{weddingDate}</div>
+            {/* <div className="mb-4">
+              <Image
+                src={landingFeather}
+                alt="Small Image"
+                width={100}
+                height={100}
+              />
+            </div> */}
+            <a
+              href="/account/sign-up"
+              className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-full cursor-pointer"
+            >
+              Start
+            </a>
           </div>
-        </Link>
+        </div>
       </div>
-
-      {/* Wedding date */}
-      <div className="text-center mt-16">
-        <p className="text-2xl md:text-3xl font-bold mb-4">Save the Date</p>
-        <p className="text-lg md:text-xl mb-8">{weddingDate}</p>
-      </div>
-
-      {/* Small image */}
-      <div className="mt-16">
-        <img
-          src="/images/back1.png"
-          alt="Couple"
-          className="rounded-lg shadow-lg"
-          style={{ maxWidth: '300px' }}
-        />
-      </div>
-
-      {/* About section */}
-      <div className="mt-24 flex flex-col items-center">
-        <h2 className="text-2xl md:text-4xl font-bold mb-4">About Us</h2>
-        <p className="text-lg max-w-lg text-center mb-8">
-          Wedding App is designed to simplify the wedding planning process. From venue
-          selection to guest management, we've got you covered.
-        </p>
-        <img
-          src="/images/back1.png"
-          alt="About Us"
-          className="rounded-lg shadow-lg"
-          style={{ maxWidth: '600px' }}
-        />
-      </div>
-
-      {/* Footer */}
-      <footer className="mt-24 text-center">
-        <p>&copy; 2024 Wedding Gate. All rights reserved.</p>
-      </footer>
     </div>
   );
 };
