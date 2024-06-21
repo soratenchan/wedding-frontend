@@ -37,9 +37,9 @@ const LandingPage = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-8">Wedding Gate</h1>
             <div className="text-3xl md:text-4xl font-semibold mb-8">
               <span className="text-green-600">{groomName}</span><br />
-              <span className="text-green-600">{brideName}</span>
+              <span className="text-green-500">{brideName}</span>
             </div>
-            <div className="text-lg mb-12 font-courier">
+            <div className="text-lg mb-12 text-green-600 font-semibold font-courier">
               {weddingDate}
             </div>
             <div className="flex items-center justify-center pb-8">
@@ -53,9 +53,9 @@ const LandingPage = () => {
             <div className="flex justify-center">
               <a
                 href="/account/sign-up"
-                className="custom-box text-black font-bold cursor-pointer"
+                className="custom-box font-sans text-black cursor-pointer"
               >
-                Start
+                始める
               </a>
             </div>
           </div>
