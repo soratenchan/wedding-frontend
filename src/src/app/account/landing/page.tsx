@@ -1,22 +1,25 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import landingImage from '../../../images/landing.png';
-import landingFeather from '../../../images/back2.png';
+import landingFeather from '../../../images/leaf.png';
+
+// Constants
+const groomName = "大谷";
+const brideName = "田中";
+const weddingDate = "11.11.2023";
 
 const LandingPage = () => {
-  const weddingDate = "June 20, 2025";
-
   return (
-    <div className="min-h-screen bg-custom-f8f9f7">
+    <div className="min-h-screen bg-custom-background">
       <Head>
         <title>Wedding App - Your Dream Wedding Planner</title>
         <meta name="description" content="Plan your dream wedding with ease" />
       </Head>
 
-      {/* Background color */}
+      {/* Background Color */}
       <div className="relative min-h-screen bg-f8f9f7">
         
-        {/* Image container */}
+        {/* Image Container */}
         <div className="absolute inset-0 flex items-center justify-center bg-f8f9f7">
           <Image
             src={landingImage}
@@ -31,26 +34,30 @@ const LandingPage = () => {
         {/* Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-gray-800">
           <div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">Wedding Gate</h1>
-            <div className="text-3xl md:text-4xl font-semibold mb-2">
-              <span className="text-pink-600">Ohtani</span> &{' '}
-              <span className="text-purple-600">Tanaka</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-8">Wedding Gate</h1>
+            <div className="text-3xl md:text-4xl font-semibold mb-8">
+              <span className="text-green-600">{groomName}</span><br />
+              <span className="text-green-600">{brideName}</span>
             </div>
-            <div className="text-lg mb-2">{weddingDate}</div>
-            {/* <div className="mb-4">
+            <div className="text-lg mb-12 font-courier">
+              {weddingDate}
+            </div>
+            <div className="flex items-center justify-center pb-8">
               <Image
                 src={landingFeather}
                 alt="Small Image"
                 width={100}
                 height={100}
               />
-            </div> */}
-            <a
-              href="/account/sign-up"
-              className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-full cursor-pointer"
-            >
-              Start
-            </a>
+            </div>
+            <div className="flex justify-center">
+              <a
+                href="/account/sign-up"
+                className="custom-box text-black font-bold cursor-pointer"
+              >
+                Start
+              </a>
+            </div>
           </div>
         </div>
       </div>
