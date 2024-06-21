@@ -20,7 +20,15 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
+        'sans': [
+          'Helvetica Neue',
+          'Helvetica',
+          'Roboto',
+          'Arial',
+          'sans-serif',
+        ],
         'courier': ['Courier New', 'Courier', 'monospace'],
+        'inter': ['Inter', 'sans-serif'],
       },
       keyframes: {
         hoverBefore: {
